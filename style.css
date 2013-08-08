@@ -8,10 +8,10 @@
 
   #page:after {display: table; clear: both; content: "";}
 
-  #map {width: 1024px; position: relative; margin: 0 auto; float: left;}
+  #map {width: 1024px; position: relative; float: left;}
   #instructions {width: 156px; float: left;}
 
-  .cam {background: url('camera.png') no-repeat; width: 28px; height: 25px;display:block; cursor: pointer;}
+  .cam {background: url('camera-retro.png') no-repeat; width: 19px; height: 17px;display:block; cursor: pointer;}
   
   #picA {position: absolute; left: 487px; top: 498px;}
   /*.cam1 #streetview {background: url('map-pics/entrance-elephant.png') no-repeat; width: 380px; height: 285px;}*/
@@ -34,7 +34,10 @@
 
   #level-picker {display: block; position: relative; margin-bottom: 20px;}
   #level-picker span {background: black; color: white; text-transform: uppercase; border-radius: 5px; padding: 10px; cursor: pointer; display: block; margin-bottom: 10px; }
-  #level-picker span:hover {background: red; color: black;}
+  #level-picker span:hover,
+  #level-picker span.active {background: red; color: black;}
 
 
-  #quickview {display: none; z-index: 5; position: absolute; top: 0; left: 0; width: 380px; height: 285px; }
+  #quickview {display: none; z-index: 5; position: absolute; top: 0; left: 0; width: 380px; height: 285px; border-radius: 8px; -moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 0 0 5px#888;
+box-shadow: 0 0 5px #888;}

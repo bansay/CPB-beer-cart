@@ -23,16 +23,18 @@
 
 <div id="page" class="container">
     <div id="instructions">
-        <h2>Choose which level you'd like to view:</h2>
+        <h2>Choose Level to View:</h2>
         <div id="level-picker">
           <span id="first-btn">First Floor</span>
           <span id="second-btn">Second Floor</span>
         </div>
+        <small>You can click on the camera's to see streetview.</small>
     </div>
     <div id="map">
         <div id="img-box">
-          <img id="first" src="floor1.png" alt="map of first floor" />
-          <img id="second" src="floor2.png" alt="map of second floor" />
+
+          <img id="first" src="floor1-colored.png" alt="map of first floor" />
+          <img id="second" src="floor2-color.png" alt="map of second floor" />
 
           <div id="cam-box">
             <div id="picA" class="cam" data-image="map-pics/entrance-elephant.png"></div>
@@ -52,14 +54,21 @@
 
 $("#first-btn").click(
     function () {
-     var firstSource = $('#first').css("display", "block");
+      $('#second-btn').removeClass('active');
+      $(this).addClass('active');
+     $('#first').attr('src', 'floor1-colored.png');
+     var firstSource = $('#first').show;
      var turnoffSecond = $('#second').css("display", "none");
      firstSource;
     }
   );
 $("#second-btn").click(
     function () {
-     var secondSource = $('#second').css("display", "block");
+      $('#first-btn').removeClass('active');
+      $(this).addClass('active');
+     var secondSource = $('#second').show();
+     var changeFirst = $('#first').attr('src', 'floor1.png');
+     changeFirst;
      secondSource;
     }
   );
@@ -80,12 +89,12 @@ var $quickview = $('#quickview');
 
       if(left>=512){
 
-        $quickview.css('top', -90).css('left', -390).addClass('right');
+        $quickview.css('top', -90).css('left', -380).addClass('right');
         
       }else{
 
         $quickview.removeClass('right');
-        $quickview.css('top', -90).css('left', 35);
+        $quickview.css('top', -90).css('left', 19);
 
       }
 

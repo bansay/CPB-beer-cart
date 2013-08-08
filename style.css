@@ -1,0 +1,40 @@
+  body {width: 100%; font-family: 'Arial, sans serif'; font-size: 16px;}
+  figure {margin: 0; padding: 0;}
+
+  #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+
+  .container { width: 1200px; margin: 0auto; position: relative;}
+
+  #page:after {display: table; clear: both; content: "";}
+
+  #map {width: 1024px; position: relative; margin: 0 auto; float: left;}
+  #instructions {width: 156px; float: left;}
+
+  .cam {background: url('camera.png') no-repeat; width: 28px; height: 25px;display:block; cursor: pointer;}
+  
+  #picA {position: absolute; left: 487px; top: 498px;}
+  /*.cam1 #streetview {background: url('map-pics/entrance-elephant.png') no-repeat; width: 380px; height: 285px;}*/
+
+  #picB {position: absolute; left: 239px; top: 460px;}
+  /*.cam2 #streetview {background: url('map-pics/3d.png') no-repeat; width: 380px; height: 284px;}*/
+
+  #picC {position: absolute; left: 315px; top: 91px;}
+  /*.cam3 #streetview {background: url('map-pics/tent.png') no-repeat; width: 380px; height: 284px;}*/
+
+  #picD {position: absolute; left: 555px; top: 139px;}
+  /*.cam4 #streetview {background: url('map-pics/bcycle.png') no-repeat; width: 380px; height: 509px;}*/
+
+  #img-box {width: 1024; height: 663px; display: block; position: relative; }
+  #second {display: none; position: absolute; top: 0;}
+
+  #first {z-index: -1 }
+  #second {z-index: 1 }
+  #cam-box {z-index: 2; position: absolute; top: 0;}
+
+  #level-picker {display: block; position: relative; margin-bottom: 20px;}
+  #level-picker span {background: black; color: white; text-transform: uppercase; border-radius: 5px; padding: 10px; cursor: pointer; display: block; margin-bottom: 10px; }
+  #level-picker span:hover {background: red; color: black;}
+
+
+  #quickview {display: none; z-index: 5; position: absolute; top: 0; left: 0; width: 380px; height: 285px; }

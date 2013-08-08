@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="mapDrag.js"></script>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+ 
+<!-- <div id="draggable" class="ui-widget-content">
+  <p>Drag me to my target</p>
+</div>
+ 
+<div id="droppable" class="ui-widget-header">
+  <p>Drop here</p>
+</div> -->
+
+
+<div id="page" class="container">
+    <div id="instructions">
+        <h2>Choose which level you'd like to view:</h2>
+        <div id="level-picker">
+          <span id="first-btn">First Floor</span>
+          <span id="second-btn">Second Floor</span>
+        </div>
+    </div>
+    <div id="map">
+        <div id="img-box">
+          <img id="first" src="floor1.png" alt="map of first floor" />
+          <img id="second" src="floor2.png" alt="map of second floor" />
+
+          <div id="cam-box">
+            <div id="picA" class="cam" data-image="map-pics/entrance-elephant.png"></div>
+            <div id="picB" class="cam" data-image="map-pics/3d.png"></div>
+            <div id="picC" class="cam" data-image="map-pics/tent.png"></div>
+            <div id="picD" class="cam" data-image="map-pics/bcycle.png"></div>
+           </div>
+           <div id="quickview"></div>
+        </div>
+        
+
+    </div>
+
+</div>
+
+<script>
+
+$("#first-btn").click(
+    function () {
+     var firstSource = $('#first').css("display", "block");
+     var turnoffSecond = $('#second').css("display", "none");
+     firstSource;
+    }
+  );
+$("#second-btn").click(
+    function () {
+     var secondSource = $('#second').css("display", "block");
+     secondSource;
+    }
+  );
+
+var $quickview = $('#quickview');
+
+    $('.cam').click(function(event){
+
+      event.preventDefault;
+      var imageSource = $(this).data('image');
+      console.log(imageSource);
+      var $mapImage = $(this).addClass('hover');        
+      var position = $mapImage.position();
+      var left = position.left;
+
+      $mapImage.append($quickview);
+      $quickview.css('background', 'url(' + imageSource + ')');
+
+      if(left>=512){
+
+        $quickview.css('top', -90).css('left', -390).addClass('right');
+        
+      }else{
+
+        $quickview.removeClass('right');
+        $quickview.css('top', -90).css('left', 35);
+
+      }
+
+      $quickview.fadeIn(500);
+
+      return false;
+    });//End Button Click
+
+    $('.cam').mouseleave(function () {
+      $division = $(this);
+      if ($division.hasClass('hover')) {
+        
+
+        $quickview = $division.find('#quickview')
+        $quickview.fadeOut(500, function () {
+          $division.removeClass('hover');
+          $quickview.remove();
+        });
+      }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $('#picA').click(
+//       function () {
+//     $('#streetview').parents('figure').removeClass("cam2 cam3 cam4");
+//     $('#streetview').parents('figure').addClass('cam1');
+//         }
+//       );
+
+// $('#picB').click(
+//       function () {
+//         $('#streetview').parents('figure').removeClass("cam1 cam3 cam4");
+//     $('#streetview').parents('figure').addClass('cam2');
+//         }
+//       );
+
+// $('#picC').click(
+//       function () {
+//     $('#streetview').parents('figure').removeClass("cam1 cam2 cam4");
+//     $('#streetview').parents('figure').addClass('cam3');
+//         }
+//       );
+
+// $('#picD').click(
+//       function () {
+//         $('#streetview').parents('figure').removeClass("cam2 cam3");
+//     $('#streetview').parents('figure').addClass('cam4');
+//         }
+//       );
+
+
+</script>
+ 
+ 
+</body>
+</html>
